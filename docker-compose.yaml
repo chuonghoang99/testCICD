@@ -1,0 +1,26 @@
+version: '3'
+services:
+    jenkins:
+        image: jenkins/jenkins:lts
+        container_name: jenkins
+        ports:
+            - '8080:8080' # Port cho giao diện web của Jenkins
+            - '50000:50000' # Port cho kết nối agent
+        volumes:
+            - jenkins_data:/var/jenkins_home # Volume để lưu trữ dữ liệu của Jenkins
+
+    ngrok:
+        image: ngrok/ngrok:latest
+
+        command:
+            - 'start'
+            - '--all'
+            - '--config'
+            - '/etc/ngrok.yml'
+        volumes:
+            - ./ngrok.yml:/etc/ngrok.yml # Ánh xạ file cấu hình ngrok.yml vào container
+        depends_on:
+            - jenkins # Đảm bảo Ngrok khởi động sau Jenkins
+
+volumes:
+    jenkins_data:
