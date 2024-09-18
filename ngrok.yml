@@ -1,6 +1,6 @@
 version: '2'
 
-authtoken: 2mCMXpRO1rahU50XFbbmUuZHpJT_4KLYgJer9GEZH9qMKM8WY
+authtoken: <token>
 tunnels:
     web:
         proto: http
