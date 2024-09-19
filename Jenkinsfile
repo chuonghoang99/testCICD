@@ -2,33 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone') {
             steps {
                 // Lấy mã nguồn từ Git repository
-                git url: 'https://github.com/chuonghoang99/testCICD.git', branch: 'main'
+                git 'https://github.com/chuonghoang99/testCICD.git'
             }
         }
 
-        stage('Build') {
-            steps {
-                // Build ứng dụng, ví dụ với Maven
-                sh 'mvn clean install'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                // Chạy các bài kiểm thử tự động
-                sh 'mvn test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Triển khai ứng dụng lên môi trường staging
-                sh './deploy.sh'
-            }
-        }
     }
 
     post {
