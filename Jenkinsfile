@@ -5,7 +5,7 @@ pipeline {
         stage('Clone') {
             steps {
                 // Lấy mã nguồn từ Git repository
-                git 'https://github.com/chuonghoang99/testCICD.git'
+                git branch: 'main', url: 'https://github.com/chuonghoang99/testCICD.git'
             }
         }
 
