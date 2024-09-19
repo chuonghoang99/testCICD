@@ -4,7 +4,14 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/chuonghoang99/testCICD.git'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/chuonghoang99/testCICD.git',
+                        refspec: '+refs/heads/*:refs/remotes/origin/*'
+                    ]]
+                ])
         }
 
     }
