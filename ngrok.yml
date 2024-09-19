@@ -1,7 +1,2 @@
-version: '2'
-
-authtoken: <token>
-tunnels:
-    web:
-        proto: http
-        addr: 8080
+region: ap
+authtoken: 2mEc9vpfhUvE90LtokNeKWKVLyh_7RGDrqPVJNuCnXvNFm7JM
