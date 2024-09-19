@@ -4,22 +4,21 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                // Lấy mã nguồn từ Git repository
-                git branch: 'main', url: 'https://github.com/chuonghoang99/testCICD.git'
+                git  'https://github.com/chuonghoang99/testCICD.git'
             }
         }
 
     }
 
-    post {
-        // Gửi thông báo nếu pipeline thành công
-        success {
-            echo 'Pipeline đã thành công!'
-        }
+    // post {
+    //     // Gửi thông báo nếu pipeline thành công
+    //     success {
+    //         echo 'Pipeline đã thành công!'
+    //     }
 
-        // Gửi thông báo nếu pipeline thất bại
-        failure {
-            echo 'Pipeline đã thất bại.'
-        }
-    }
+    //     // Gửi thông báo nếu pipeline thất bại
+    //     failure {
+    //         echo 'Pipeline đã thất bại.'
+    //     }
+    // }
 }
